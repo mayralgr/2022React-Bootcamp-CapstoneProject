@@ -1,10 +1,8 @@
-import PropTypes from 'prop-types';
-
-
 const Header = () => {
-
+<>
+<span>Home</span>
+<span>Products</span>
+</>
 }
 
-Header.propTypes = {
-    
-}
+export default Header;
