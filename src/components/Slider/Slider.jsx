@@ -4,10 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import { featuredBanners } from '../../mocks/es-mx/featured-banners';
 
 const Slider = () => {
-  // console.log(featuredBanners);
-  debugger;
   return (
-    <div className='container'>
+    <div className="container">
       <Carousel variant="dark">
         {featuredBanners?.results.map((banner) => {
           return (
@@ -18,7 +16,7 @@ const Slider = () => {
                 alt={banner.data.main_image.alt}
               />
               <Carousel.Caption>
-                <h3 style={{color: '#8F3927'}}>{banner.data.title}</h3>
+                <h3 style={{ color: '#8F3927' }}>{banner.data.title}</h3>
               </Carousel.Caption>
             </Carousel.Item>
           );
