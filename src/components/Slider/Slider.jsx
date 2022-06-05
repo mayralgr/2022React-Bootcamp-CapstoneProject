@@ -1,9 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
-import { featuredBanners } from '../../mocks/es-mx/featured-banners';
 
-const Slider = () => {
+const Slider = ({featuredBanners}) => {
   return (
     <div className="container">
       <Carousel variant="dark">

@@ -12,10 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  // width: 5%;
   float: left;
-  // margin: 1%;
-  // margin-rigth: 0;
   height: 6vh;
 `;
 
