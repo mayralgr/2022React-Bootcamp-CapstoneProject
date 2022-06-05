@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 2%;
 `;
 
 const ProductCategories = ({ categories }) => {

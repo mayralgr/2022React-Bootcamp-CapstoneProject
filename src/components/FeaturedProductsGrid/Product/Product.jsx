@@ -16,7 +16,7 @@ const ProductImage = styled.img`
 }`;
 
 const PricePill = styled.span`
-background-color: #ddd;
+background-color: #fde4a1;
 border: none;
 color: black;
 padding: 10px 20px;
@@ -29,7 +29,7 @@ border-radius: 16px;
 }`;
 
 const CategoryPill = styled.span`
-background-color: #ddd;
+background-color: #9beaf9;
 border: none;
 color: black;
 padding: 10px 20px;
@@ -66,7 +66,7 @@ const Product = ({ product }) => {
         <PillsWrapper>
           <ProductName>{product.data.name}</ProductName>
           <CategoryPill>{product.data.category.slug}</CategoryPill>
-          <PricePill>{product.data.price}</PricePill>
+          <PricePill>$ {product.data.price}</PricePill>
         </PillsWrapper>
       </Cell>
     )

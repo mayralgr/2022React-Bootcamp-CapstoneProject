@@ -9,8 +9,8 @@ import { featuredProducts } from '../../mocks/en-us/featured-products';
 const Home = () => {
   return (
     <>
-      <Slider featuredBanners={featuredBanners} />
       <ProductCategories categories={productCategories} />
+      <Slider featuredBanners={featuredBanners} />
       <FeaturedProductGrid products={featuredProducts} />
     </>
   );

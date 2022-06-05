@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 const Cell = styled.div`
   display: inline-table;
-  background: grey;
+  background: #ff9d9c;
   text-align: center;
   border: black 5px solid;
-  font-size: 3.2vw;
+  font-size: 2.8vw;
+  color: black;
 `;
 
 const CategoryImage = styled.img`
