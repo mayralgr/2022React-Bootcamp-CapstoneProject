@@ -5,7 +5,7 @@ const Cell = styled.div`
   background: grey;
   text-align: center;
   border: black 5px solid;
-  font-size: 4.2vw;
+  font-size: 3.2vw;
 `;
 
 const CategoryImage = styled.img`
