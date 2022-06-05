@@ -79,7 +79,7 @@ const Header = () => (
   <Wrapper>
     <NavLink to="/">
       <Logo src={logo} alt="logo" />
-      GetIT
+      ShopIT
     </NavLink>
     <NavLink to="/">Home</NavLink>
     <NavLink to="/products">Products</NavLink>
