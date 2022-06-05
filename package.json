@@ -68,7 +68,8 @@
       ],
       "no-sparse-arrays": 0,
       "curly": "error"
-    }
+    },
+    "parser": "react-scripts/node_modules/babel-eslint"
   },
   "browserslist": {
     "production": [
