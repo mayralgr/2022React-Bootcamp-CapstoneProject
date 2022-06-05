@@ -1,4 +1,4 @@
-import logo from '../../resources/images/logo_rocket.svg';
+import logo from '../../resources/images/logo_furniture.svg';
 import shoppingCart from '../../resources/images/buy_cart.svg';
 import searchIcon from '../../resources/images/search_icon.svg';
 import styled from 'styled-components';
