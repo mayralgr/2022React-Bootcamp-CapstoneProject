@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/2022React-Bootcamp-CapstoneProject/static/css/main.a617e044.chunk.css",
+    "main.js": "/2022React-Bootcamp-CapstoneProject/static/js/main.46d3d1e1.chunk.js",
+    "main.js.map": "/2022React-Bootcamp-CapstoneProject/static/js/main.46d3d1e1.chunk.js.map",
+    "runtime-main.js": "/2022React-Bootcamp-CapstoneProject/static/js/runtime-main.14e9d321.js",
+    "runtime-main.js.map": "/2022React-Bootcamp-CapstoneProject/static/js/runtime-main.14e9d321.js.map",
+    "static/css/2.8c0e6b67.chunk.css": "/2022React-Bootcamp-CapstoneProject/static/css/2.8c0e6b67.chunk.css",
+    "static/js/2.803de361.chunk.js": "/2022React-Bootcamp-CapstoneProject/static/js/2.803de361.chunk.js",
+    "static/js/2.803de361.chunk.js.map": "/2022React-Bootcamp-CapstoneProject/static/js/2.803de361.chunk.js.map",
+    "static/js/3.c149f069.chunk.js": "/2022React-Bootcamp-CapstoneProject/static/js/3.c149f069.chunk.js",
+    "static/js/3.c149f069.chunk.js.map": "/2022React-Bootcamp-CapstoneProject/static/js/3.c149f069.chunk.js.map",
+    "index.html": "/2022React-Bootcamp-CapstoneProject/index.html",
+    "static/css/2.8c0e6b67.chunk.css.map": "/2022React-Bootcamp-CapstoneProject/static/css/2.8c0e6b67.chunk.css.map",
+    "static/css/main.a617e044.chunk.css.map": "/2022React-Bootcamp-CapstoneProject/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.803de361.chunk.js.LICENSE.txt": "/2022React-Bootcamp-CapstoneProject/static/js/2.803de361.chunk.js.LICENSE.txt",
+    "static/media/buy_cart.ee17076e.svg": "/2022React-Bootcamp-CapstoneProject/static/media/buy_cart.ee17076e.svg",
+    "static/media/logo_rocket.e160ffc3.svg": "/2022React-Bootcamp-CapstoneProject/static/media/logo_rocket.e160ffc3.svg",
+    "static/media/search_icon.f61631c9.svg": "/2022React-Bootcamp-CapstoneProject/static/media/search_icon.f61631c9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.14e9d321.js",
+    "static/css/2.8c0e6b67.chunk.css",
+    "static/js/2.803de361.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.46d3d1e1.chunk.js"
+  ]
+}
