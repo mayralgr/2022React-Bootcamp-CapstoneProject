@@ -1,15 +1,17 @@
 import ProductCategories from '../../components/ProductCategories/ProductCategories';
 import Slider from '../../components/Slider/Slider';
+import FeaturedProductGrid from '../../components/FeaturedProductsGrid/FeaturedProductsGrid';
 
-import { featuredBanners } from '../../mocks/es-mx/featured-banners';
-import { productCategories } from '../../mocks/es-mx/product-categories';
+import { featuredBanners } from '../../mocks/en-us/featured-banners';
+import { productCategories } from '../../mocks/en-us/product-categories';
+import { featuredProducts } from '../../mocks/en-us/featured-products';
 
 const Home = () => {
   return (
     <>
-      <h2>Home Page</h2>
       <Slider featuredBanners={featuredBanners} />
-      <ProductCategories categories={productCategories}/>
+      <ProductCategories categories={productCategories} />
+      <FeaturedProductGrid products={featuredProducts} />
     </>
   );
 };

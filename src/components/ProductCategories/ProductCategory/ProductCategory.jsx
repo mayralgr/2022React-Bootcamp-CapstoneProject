@@ -5,6 +5,7 @@ const Cell = styled.div`
   background: grey;
   text-align: center;
   border: black 5px solid;
+  font-size: 4.2vw;
 `;
 
 const CategoryImage = styled.img`
@@ -17,7 +18,7 @@ const ProductCategory = ({ category }) => {
         src={category?.data?.main_image?.url}
         alt={category?.data?.main_image?.alt}
       />
-      <h3>{category?.data.name}</h3>
+      {category?.data.name}
     </Cell>
   );
 };
