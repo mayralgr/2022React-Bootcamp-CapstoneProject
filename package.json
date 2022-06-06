@@ -68,8 +68,7 @@
       ],
       "no-sparse-arrays": 0,
       "curly": "error"
-    },
-    "parser": "react-scripts/node_modules/babel-eslint"
+    }
   },
   "browserslist": {
     "production": [
@@ -84,7 +83,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-config-react-app": "^6.0.0",
     "prettier": "^2.6.2"
   }

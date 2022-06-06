@@ -5,7 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 const setup = () => render(
   <Router>
     <App />
-  </Router>,
+  </Router>
 );
 describe('Header test', () => {
   it('the Store logo/name appears correctly in the Header', async () => {

@@ -26,12 +26,14 @@ const Cart = styled.img`
   text-align: right;
   padding: 1%;
   height: 6vh;
+  width: 70%;
 `;
 
 const Search = styled.img`
   margin: 0;
   padding: 0;
   height: 6vh;
+  width: 70%;
 `;
 
 const NavLink = styled(Link)`
@@ -73,6 +75,9 @@ const SearchInput = styled.input`
   height: 4vh;
   margin-top: 6%;
   border-radius: 20px;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Header = () => (
@@ -84,12 +89,12 @@ const Header = () => (
     <NavLink to="/">Home</NavLink>
     <NavLink to="/products">Products</NavLink>
     <RigthWrapper>
-      <SearchInput type="text" />
+      <SearchInput id="searchInput" type="text" />
       <NavLinkIcons to="/">
-        <Search src={searchIcon} alt="searchIcon" />
+        <Search id="searchIcon" src={searchIcon} alt="searchIcon" />
       </NavLinkIcons>
       <NavLinkIcons to="/">
-        <Cart src={shoppingCart} alt="shoppingCart" />
+        <Cart id="cart" src={shoppingCart} alt="shoppingCart" />
       </NavLinkIcons>
     </RigthWrapper>
   </Wrapper>

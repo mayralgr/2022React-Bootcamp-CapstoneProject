@@ -16,29 +16,37 @@ const ProductImage = styled.img`
 }`;
 
 const PricePill = styled.span`
-background-color: #fde4a1;
-border: none;
-color: black;
-padding: 10px 20px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-margin: 4px 2px;
-cursor: pointer;
-border-radius: 16px;
+  background-color: #fde4a1;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  @media (max-width: 550px) {
+  font-size: 3vw;
+  padding: 5px 10px;
+  margin: 0;
+  }
 }`;
 
 const CategoryPill = styled.span`
-background-color: #9beaf9;
-border: none;
-color: black;
-padding: 10px 20px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-margin: 4px 2px;
-cursor: pointer;
-border-radius: 16px;
+  background-color: #9beaf9;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  @media (max-width: 770px) {
+    display: none;
+  }
 }`;
 
 const PillsWrapper = styled.div`
@@ -52,7 +60,10 @@ const PillsWrapper = styled.div`
 
 const ProductName = styled.p`
   color: black;
-  background-color: rgba(128,128,128, 0.5);
+  background-color: rgba(128, 128, 128, 0.5);
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
 
 const Product = ({ product }) => {
