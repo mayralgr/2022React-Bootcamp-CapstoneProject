@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h3`
   font-size: 4vh;
-  @media (max-width: 300px) {
+  @media (max-width: 420px) {
     display: none;
   }
 `;

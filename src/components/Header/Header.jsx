@@ -51,7 +51,7 @@ const NavLink = styled(Link)`
   &:focus {
     color: #888888;
   }
-  @media (max-width: 300px) {
+  @media (max-width: 420px) {
     font-size: 2vh;
     padding-left: 1%;
     padding-right: 1%;
