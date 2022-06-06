@@ -6,7 +6,6 @@ const Cell = styled.div`
   background: grey;
   text-align: center;
   border: black 5px solid;
-  // font-size: 4.2vw;
   heigth: 20%;
   position: relative;
 `;

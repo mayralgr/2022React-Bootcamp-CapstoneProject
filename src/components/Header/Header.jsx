@@ -51,6 +51,9 @@ const NavLink = styled(Link)`
   &:focus {
     color: #888888;
   }
+  @media (max-width: 300px) {
+    font-size: 3vh;
+  }
 `;
 
 const NavLinkIcons = styled(Link)`
@@ -82,8 +85,8 @@ const SearchInput = styled.input`
 
 const Header = () => (
   <Wrapper>
-    <NavLink id='logoName' to="/">
-      <Logo id='logo' src={logo} alt="logo" />
+    <NavLink id="logoName" to="/">
+      <Logo id="logo" src={logo} alt="logo" />
       ShopIT
     </NavLink>
     <NavLink to="/">Home</NavLink>

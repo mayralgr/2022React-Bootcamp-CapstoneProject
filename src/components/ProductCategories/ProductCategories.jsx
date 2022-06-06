@@ -11,16 +11,21 @@ const Wrapper = styled.div`
   margin-bottom: 2%;
 `;
 
+const Title = styled.h3`
+  font-size: 4vh;
+`;
+
+
 const ProductCategories = ({ categories }) => {
   return (
-    <>
-      <h3>Choose a category</h3>
+    <div>
+      <Title>Choose a category</Title>
       <Wrapper>
         {categories?.results.map(category => (
           <ProductCategory key={category.id} category={category}/>
         ))}
       </Wrapper>
-    </>
+    </div>
   );
 };
 
