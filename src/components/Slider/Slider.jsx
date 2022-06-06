@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const Slider = ({featuredBanners}) => {
   return (
-    <div className="container">
+    <div className="container" style={{marginBottom: "2%"}}>
       <Carousel variant="dark">
         {featuredBanners?.results.map((banner) => {
           return (
