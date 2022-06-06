@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
   float: left;
   height: 6vh;
 `;
@@ -77,8 +77,8 @@ const SearchInput = styled.input`
 
 const Header = () => (
   <Wrapper>
-    <NavLink to="/">
-      <Logo src={logo} alt="logo" />
+    <NavLink id='logoName' to="/">
+      <Logo id='logo' src={logo} alt="logo" />
       ShopIT
     </NavLink>
     <NavLink to="/">Home</NavLink>
