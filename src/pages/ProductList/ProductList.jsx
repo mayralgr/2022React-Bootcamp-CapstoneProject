@@ -1,5 +1,9 @@
 const ProductList = () => {
-    return <> <h2>Product List Page</h2></>
-}
+  return (
+    <>
+      <h1>This is the Product List Page</h1>
+    </>
+  );
+};
 
 export default ProductList;
