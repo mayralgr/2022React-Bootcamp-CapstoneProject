@@ -1,6 +1,6 @@
 import ProductCategories from '../../components/ProductCategories/ProductCategories';
 import Slider from '../../components/Slider/Slider';
-import FeaturedProductGrid from '../../components/FeaturedProductsGrid/FeaturedProductsGrid';
+import FeaturedProductGrid from '../../components/ProductsGrids/FeaturedProductsGrid';
 
 import { featuredBanners } from '../../mocks/en-us/featured-banners';
 import { productCategories } from '../../mocks/en-us/product-categories';
@@ -13,7 +13,7 @@ const Home = () => {
       <ProductCategories categories={productCategories} />
       <Slider featuredBanners={featuredBanners} />
       <FeaturedProductGrid products={featuredProducts} />
-      <Button>View all products</Button>
+      <Button to="/products">View all products</Button>
     </>
   );
 };
