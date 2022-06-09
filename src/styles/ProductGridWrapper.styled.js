@@ -9,6 +9,12 @@ const Wrapper = styled.div`
     grid-auto-rows: minmax(100px, auto);
     margin-bottom: 2%;
     margin-left: 20%;
+    @media (max-width: 400px) {
+        width: auto;
+        margin-bottom: 2%;
+        margin-left: 30%;
+        grid-gap: 0;
+    }
 `;
 
 export default Wrapper;

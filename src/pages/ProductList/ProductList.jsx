@@ -4,7 +4,9 @@ import { products } from '../../mocks/en-us/products';
 import { productCategories } from '../../mocks/en-us/product-categories';
 import { useEffect, useState } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import PaginationWrapper from '../../styles/PaginationProductListBar.styled';
 
+import Pagination from 'react-bootstrap/Pagination';
 const ProductList = () => {
     const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
     const [activeProducts, setActiveProducts] = useState(products);
@@ -54,7 +56,28 @@ const ProductList = () => {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 ) : (
-                    <ProductsGrid products={activeProducts} />
+                    <>
+                        <ProductsGrid products={activeProducts} />
+                        {activeProducts?.results?.length > 0 && (
+                            <PaginationWrapper>
+                                <Pagination.First />
+                                <Pagination.Prev />
+                                <Pagination.Item>{1}</Pagination.Item>
+                                <Pagination.Ellipsis />
+
+                                <Pagination.Item>{10}</Pagination.Item>
+                                <Pagination.Item>{11}</Pagination.Item>
+                                <Pagination.Item active>{12}</Pagination.Item>
+                                <Pagination.Item>{13}</Pagination.Item>
+                                <Pagination.Item disabled>{14}</Pagination.Item>
+
+                                <Pagination.Ellipsis />
+                                <Pagination.Item>{20}</Pagination.Item>
+                                <Pagination.Next />
+                                <Pagination.Last />
+                            </PaginationWrapper>
+                        )}
+                    </>
                 )}
             </div>
         </div>

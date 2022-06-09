@@ -11,5 +11,12 @@ const SidebarLink = styled.div`
     &:hover:not(.active) {
         color: white;
     }
+
+    @media (max-width: 400px) {
+        font-size: 2vh;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 `;
 export default SidebarLink;
