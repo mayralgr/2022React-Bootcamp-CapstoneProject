@@ -2,11 +2,18 @@ import ProductsGrid from '../../components/ProductsGrids/ProductsGrid';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { products } from '../../mocks/en-us/products';
 import { productCategories } from '../../mocks/en-us/product-categories';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 
 const ProductList = () => {
     const [activeCategoryFilters, setActiveCategoryFilters] = useState([]);
     const [activeProducts, setActiveProducts] = useState(products);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    }, []);
     const handleCategoryClick = (e) => {
         e.preventDefault();
         const categoryId = e.target?.id || [];
@@ -26,25 +33,31 @@ const ProductList = () => {
                 (categoryId) => product.data.category.id === categoryId
             );
         });
-        if (
-            newActiveCategoryFilters.length === 0
-        ){
+        if (newActiveCategoryFilters.length === 0) {
             newActiveProducts = products.results;
         }
-        setActiveProducts({...activeProducts, results: newActiveProducts});
+        setActiveProducts({ ...activeProducts, results: newActiveProducts });
         setActiveCategoryFilters(newActiveCategoryFilters);
     };
 
     return (
-        <>
+        <div>
             <h1 style={{ margin: '1px' }}>This is the Product List Page</h1>
             <Sidebar
                 categories={productCategories}
                 handleCategoryClick={handleCategoryClick}
                 activeCategoryFilters={activeCategoryFilters}
             />
-            <ProductsGrid products={activeProducts} />
-        </>
+            <div>
+                {loading ? (
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                ) : (
+                    <ProductsGrid products={activeProducts} />
+                )}
+            </div>
+        </div>
     );
 };
 

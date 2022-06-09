@@ -9,12 +9,12 @@ import Button from '../../styles/ButtonSeeMore.styled';
 
 const Home = () => {
   return (
-    <>
+    <div style={{paddingBottom: "2rem"}}>
       <ProductCategories categories={productCategories} />
       <Slider featuredBanners={featuredBanners} />
       <FeaturedProductGrid products={featuredProducts} />
       <Button to="/products">View all products</Button>
-    </>
+    </div>
   );
 };
 
