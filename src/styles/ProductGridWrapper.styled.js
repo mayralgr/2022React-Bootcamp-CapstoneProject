@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
     margin-bottom: 2%;
-    margin-left: 19%;
+    margin-left: 20%;
 `;
 
 export default Wrapper;
