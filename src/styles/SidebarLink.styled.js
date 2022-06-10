@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 const SidebarLink = styled.div`
-    background-color: ${({ active }) =>
+    background-color: ${({ active, clear }) =>
         active
             ? '#bb7c54'
-            : '#fc9c9c'}; //Conditional styling the background color
+            : clear ? '#2596be' :'#fc9c9c'}; //Conditional styling the background color
     display: block;
+    cursor: pointer;
     color: black;
     padding: 16px;
     text-decoration: none;

@@ -42,6 +42,14 @@ const ProductList = () => {
         setActiveCategoryFilters(newActiveCategoryFilters);
     };
 
+    const handleClearFiltersClick = (e) => {
+        e.preventDefault();
+        const newActiveCategoryFilters = [];
+        const newActiveProducts = products.results;
+        setActiveProducts({ ...activeProducts, results: newActiveProducts });
+        setActiveCategoryFilters(newActiveCategoryFilters);
+    };
+
     return (
         <div>
             <h1 style={{ margin: '1px' }}>This is the Product List Page</h1>
@@ -49,6 +57,7 @@ const ProductList = () => {
                 categories={productCategories}
                 handleCategoryClick={handleCategoryClick}
                 activeCategoryFilters={activeCategoryFilters}
+                handleClearFiltersClick={handleClearFiltersClick}
             />
             <div>
                 {loading ? (
