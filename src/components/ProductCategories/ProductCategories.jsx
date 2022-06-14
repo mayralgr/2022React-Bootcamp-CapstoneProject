@@ -4,7 +4,7 @@ import Wrapper from '../../styles/ProductCategoriesWrapper.styled';
 import Title from '../../styles/CategoriesTitle.styled';
 import Spinner from 'react-bootstrap/Spinner';
 
-const ProductCategories = ({ categories, isLoading }) => {
+const ProductCategories = ({ categories, isLoading, onClick }) => {
     return isLoading ? (
         <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>

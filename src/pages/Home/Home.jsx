@@ -7,13 +7,21 @@ import { useFeaturedBanners } from '../../utils/hooks/useFeaturedBanners';
 import { useCategories } from '../../utils/hooks/useCategories';
 
 const Home = () => {
-    const { data: featuredBannersData, isLoading: featuredBannersLoading } = useFeaturedBanners();
-    const { data: categoriesData, isLoading: categoriesLoading } = useCategories();
-    
+    const { data: featuredBannersData, isLoading: featuredBannersLoading } =
+        useFeaturedBanners();
+    const { data: categoriesData, isLoading: categoriesLoading } =
+        useCategories();
+
     return (
         <div style={{ paddingBottom: '2rem' }}>
-            <ProductCategories categories={categoriesData} isLoading={categoriesLoading} />
-            <Slider isLoading={featuredBannersLoading} featuredBanners={featuredBannersData} />
+            <ProductCategories
+                categories={categoriesData}
+                isLoading={categoriesLoading}
+            />
+            <Slider
+                isLoading={featuredBannersLoading}
+                featuredBanners={featuredBannersData}
+            />
             <FeaturedProductGrid products={featuredProducts} />
             <Button to="/products">View all products</Button>
         </div>
