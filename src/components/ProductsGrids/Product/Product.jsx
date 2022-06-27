@@ -24,7 +24,7 @@ const Product = ({ product }) => {
           <CartPill type="button">
             <CartCheckFill style={{color: "white"}}/>
           </CartPill>
-          <Link to={`/productDetail?id=${product.id}`}>
+          <Link to={`/product/${product.id}`}>
             <CartPill type="button" style={{backgroundColor:"#2E0249"}}>
               <FileTextFill style={{color: "white"}}/>
             </CartPill>
