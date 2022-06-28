@@ -3,14 +3,14 @@ import Product from './Product/Product';
 import Wrapper from '../../styles/FeatureProducsGridWrapper.styled';
 import Spinner from 'react-bootstrap/Spinner';
 
-const FeaturedProductGrid = ({ products, isLoading }) => {
+const FeaturedProductGrid = ({ products, isLoading, limit }) => {
     return isLoading ? (
         <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
         </Spinner>
     ) : (
         <Wrapper>
-            {products?.results.slice(0,16).map((product) => (
+            {products?.results.slice(0,limit).map((product) => (
                 <Product key={product.id} product={product} />
             ))}
         </Wrapper>

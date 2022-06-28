@@ -28,6 +28,7 @@ const Home = () => {
             <FeaturedProductGrid
                 products={featuredProductsData}
                 isLoading={featuredProductsLoading}
+                limit={16}
             />
             <Button to="/products">View all products</Button>
         </div>
