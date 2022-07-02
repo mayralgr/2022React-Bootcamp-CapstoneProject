@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-const CartContext = React.createContext();
+const CartContext = React.createContext({ itemsCount: 0, items: {} });
 
 function cartReducer(state, action) {
-    debugger;
     switch (action.type) {
         case 'addItem': {
             const { id, qty } = action.payload;

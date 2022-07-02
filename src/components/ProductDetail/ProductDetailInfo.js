@@ -21,13 +21,12 @@ const ProductDetailInfo = ({ product }) => {
     const handleItemsChange = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const itemsToAdd = e.target.value;
+        const itemsToAdd = parseInt(e.target.value);
         setNumberOfItems(itemsToAdd);
     };
 
     const ChangeCart = () => {
         dispatch({type: 'addItem', payload: {id: product.id, qty: numberOfItems}});
-        debugger;
       }
 
     useEffect(() => {

@@ -5,6 +5,7 @@ import Checkout from '../../pages/Checkout/Checkout';
 import ProductList from '../../pages/ProductList/ProductList';
 import ProductDetail from '../../pages/ProductDetail/ProductDetail';
 import SearchResults from '../../pages/SearchResults/SearchResults';
+import ShoppingCart from '../../pages/ShoppingCart/ShoppingCart';
 
 const AppRouter = () => (
   <Routes>
@@ -15,6 +16,7 @@ const AppRouter = () => (
     {/* <Route path="/products?category=categorySlug" element={<ProductList />} /> */}
     <Route path="/product/:productId" element={<ProductDetail />} />
     <Route path="/search" element={<SearchResults />} />
+    <Route path="/cart" element={<ShoppingCart />} />
     <Route path="/*" element={<Home />} />
     <Route path="*/" element={<Home />} />
     <Route path="*/home*" element={<Home />} />
