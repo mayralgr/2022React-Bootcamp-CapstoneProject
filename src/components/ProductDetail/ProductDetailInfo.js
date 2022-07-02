@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import { useCategories } from '../../utils/hooks/useCategories';
@@ -16,7 +16,7 @@ const ProductDetailInfo = ({ product }) => {
         useCategories();
     const [categoryInfo, setCategoryInfo] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
-    const {dispatch} = useCart();
+    const { dispatch } = useCart();
     
     const handleItemsChange = (e) => {
         e.preventDefault();
@@ -26,8 +26,16 @@ const ProductDetailInfo = ({ product }) => {
     };
 
     const ChangeCart = () => {
-        dispatch({type: 'addItem', payload: {id: product.id, qty: numberOfItems}});
-      }
+        dispatch({
+            type: 'addItem',
+            payload: {
+                id: product.id,
+                name: product.data.name,
+                price: product.data.price,
+                qty: numberOfItems,
+            },
+        });
+    };
 
     useEffect(() => {
         if (!categoriesLoading) {
@@ -36,7 +44,7 @@ const ProductDetailInfo = ({ product }) => {
             );
             setCategoryInfo(category);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         product.data && (
@@ -65,7 +73,8 @@ const ProductDetailInfo = ({ product }) => {
                     <p>{product.data.description[0].text}</p>
                     <PillsWrapper style={{ position: 'relative' }}>
                         {product.tags?.map((tag) => (
-                            <CategoryPill key={product.id + tag}
+                            <CategoryPill
+                                key={product.id + tag}
                                 style={{ backgroundColor: '#F77F00' }}>
                                 {tag}
                             </CategoryPill>
@@ -98,8 +107,13 @@ const ProductDetailInfo = ({ product }) => {
                         min={0}
                         max={product?.data?.stock ?? 1}
                     />
-                    <CartPill style={{backgroundColor: "purple"}} type="button">
-                        <CartCheckFill onClick={ChangeCart} style={{ color: 'white' }} />
+                    <CartPill
+                        style={{ backgroundColor: 'purple' }}
+                        type="button">
+                        <CartCheckFill
+                            onClick={ChangeCart}
+                            style={{ color: 'white' }}
+                        />
                     </CartPill>
                 </div>
             </>

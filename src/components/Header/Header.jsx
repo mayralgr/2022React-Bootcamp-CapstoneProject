@@ -21,7 +21,6 @@ const Header = () => {
     let navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const handleSearchInput = (e) => {
-        debugger;
         e.preventDefault();
         e.stopPropagation();
         const searchTermInput = e.target.value;
@@ -30,7 +29,6 @@ const Header = () => {
     const { state } = useCart();
 
     const handleOnClick = (e) => {
-        debugger;
         e.preventDefault();
         e.stopPropagation();
         setSearchTerm('');

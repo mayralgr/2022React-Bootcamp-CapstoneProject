@@ -1,11 +1,13 @@
+/* eslint-disable no-unused-vars */
 import CheckOutForm from '../../components/CheckoutForm/CheckoutForm';
+import OrderSummaryTable from '../../components/OrderSummaryTable/OrderSummaryTable';
 import { useCart } from '../../contexts/CartContext';
 
 const ShoppingCart = () => {
     const { state } = useCart();
-    const { items: cart } = state;
+    const { items: cartItems } = state;
     // const total = cart.reduce((acc, item) => acc + item.price, 0);
-    
+
     const checkOutHandler = (data, e) => {
         const {
             customerName,
@@ -13,15 +15,13 @@ const ShoppingCart = () => {
             customerOrderNotes,
             customerZipCode,
         } = data;
-        // pop?
-        
+        // portal of confirmation
     };
 
     return (
         <>
-            <CheckOutForm
-                checkOutHandler={checkOutHandler}
-            />
+            <OrderSummaryTable items={cartItems} />
+            <CheckOutForm checkOutHandler={checkOutHandler} />
         </>
     );
 };

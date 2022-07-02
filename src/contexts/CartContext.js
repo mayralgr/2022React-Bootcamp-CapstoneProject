@@ -1,30 +1,46 @@
 import * as React from 'react';
 
-const CartContext = React.createContext({ itemsCount: 0, items: {} });
+const CartContext = React.createContext({ itemsCount: 0, items: [] });
 
 function cartReducer(state, action) {
     switch (action.type) {
         case 'addItem': {
-            const { id, qty } = action.payload;
-            const itemQtyExisting = state.items[id] || 0;
+            const { id, qty, name, price } = action.payload;
+            const item = state.items.find(i => i.id === id);
+            const itemQtyExisting = item?.qty ?? 0;
+            const itemToAddOrUpdate = {
+                id,
+                name,
+                price,
+                qty: qty + itemQtyExisting,
+            };
+            if(item) {
+                const items = state.items.filter(i => i.id !== id);
+                return{
+                    itemsCount: state.itemsCount + qty,
+                    items: [ ...items, itemToAddOrUpdate ],
+                }
+            }
             return {
                 itemsCount: state.itemsCount + qty,
-                items: { ...state.items, [id]: qty + itemQtyExisting },
+                items: [ ...state.items, itemToAddOrUpdate ],
             };
         }
         case 'deleteItem': {
             const { id, qty } = action.payload;
-            const itemQtyExisting = state.items[id] || 0;
-            const finalQty = itemQtyExisting - qty;
+            const item = state.items.find(i => i.id === id);
+            const QtyExisting = item?.qty ?? 0;
+            const finalQty = QtyExisting - qty;
+            const updatedItem = {...item, qty: finalQty};
             if (finalQty === 0) {
                 return {
                     itemsCount: state.itemsCount - qty,
-                    items: { ...state.items.filter((item) => item.id !== id) },
+                    items: [ ...state.items.filter((item) => item.id !== id) ],
                 };
             } else {
                 return {
                     itemsCount: state.itemsCount - qty,
-                    items: { ...state.items, [id]: finalQty },
+                    items: { ...state.items.filter((item) => item.id !== id), updatedItem },
                 };
             }
         }
@@ -37,7 +53,7 @@ function cartReducer(state, action) {
 function CountProvider({ children }) {
     const [state, dispatch] = React.useReducer(cartReducer, {
         itemsCount: 0,
-        items: {},
+        items: [],
     });
     // NOTE: you *might* need to memoize this value
     // Learn more in http://kcd.im/optimize-context
