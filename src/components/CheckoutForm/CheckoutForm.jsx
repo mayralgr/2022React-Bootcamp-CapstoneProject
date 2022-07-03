@@ -67,7 +67,7 @@ const CheckOutForm = ({ checkOutHandler }) => {
                     />
                 </section>
                 <Button variant="primary" type="submit">
-                    Checkout
+                    Place order
                 </Button>
             </form>
         </>

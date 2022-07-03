@@ -16,8 +16,8 @@ const ProductDetailInfo = ({ product }) => {
         useCategories();
     const [categoryInfo, setCategoryInfo] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
-    const { dispatch } = useCart();
-    
+    const { state, dispatch } = useCart();
+
     const handleItemsChange = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -25,16 +25,31 @@ const ProductDetailInfo = ({ product }) => {
         setNumberOfItems(itemsToAdd);
     };
 
+    const checkQtyVsStock = (id, qty, stock) => {
+        const itemInCart = state.items.find((i) => i.id === id);
+        if (!itemInCart && qty <= stock) {
+            return true;
+        }
+        if (itemInCart && itemInCart.qty + qty <= stock) {
+            return true;
+        }
+        return false;
+    };
+
     const ChangeCart = () => {
-        dispatch({
-            type: 'addItem',
-            payload: {
-                id: product.id,
-                name: product.data.name,
-                price: product.data.price,
-                qty: numberOfItems,
-            },
-        });
+        checkQtyVsStock(product.id, numberOfItems, product.data.stock)
+            ? dispatch({
+                  type: 'addItem',
+                  payload: {
+                      id: product.id,
+                      name: product.data.name,
+                      price: product.data.price,
+                      qty: numberOfItems,
+                      mainImage: product.data.mainImage,
+                      stock: product.data.stock,
+                  },
+              })
+            : alert('Not enough stock');
     };
 
     useEffect(() => {
@@ -105,16 +120,18 @@ const ProductDetailInfo = ({ product }) => {
                         value={numberOfItems}
                         onChange={handleItemsChange}
                         min={0}
-                        max={product?.data?.stock ?? 1}
+                        max={product?.data?.stock ?? 1 - { numberOfItems }}
                     />
-                    <CartPill
-                        style={{ backgroundColor: 'purple' }}
-                        type="button">
-                        <CartCheckFill
-                            onClick={ChangeCart}
-                            style={{ color: 'white' }}
-                        />
-                    </CartPill>
+                    {product?.data?.stock !== 0 && (
+                        <CartPill
+                            style={{ backgroundColor: 'purple' }}
+                            type="button">
+                            <CartCheckFill
+                                onClick={ChangeCart}
+                                style={{ color: 'white' }}
+                            />
+                        </CartPill>
+                    )}
                 </div>
             </>
         )

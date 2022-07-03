@@ -3,9 +3,10 @@ import * as React from 'react';
 const CartContext = React.createContext({ itemsCount: 0, items: [] });
 
 function cartReducer(state, action) {
+    debugger;
     switch (action.type) {
         case 'addItem': {
-            const { id, qty, name, price } = action.payload;
+            const { id, qty, name, price, stock } = action.payload;
             const item = state.items.find(i => i.id === id);
             const itemQtyExisting = item?.qty ?? 0;
             const itemToAddOrUpdate = {
@@ -13,6 +14,7 @@ function cartReducer(state, action) {
                 name,
                 price,
                 qty: qty + itemQtyExisting,
+                stock,
             };
             if(item) {
                 const items = state.items.filter(i => i.id !== id);
@@ -26,23 +28,34 @@ function cartReducer(state, action) {
                 items: [ ...state.items, itemToAddOrUpdate ],
             };
         }
+        case 'updateItem': {
+            const { id, qty} = action.payload;
+            const item = state.items.find(i => i.id === id);
+            const {name, price ,qty: pastQty, stock} = item;
+            const itemToAddOrUpdate = {
+                id,
+                name,
+                price,
+                qty: qty,
+                stock,
+            };
+            if(item && qty <= stock) {
+                const items = state.items.filter(i => i.id !== id);
+                return{
+                    itemsCount: state.itemsCount - pastQty + qty,
+                    items: [ ...items, itemToAddOrUpdate ],
+                }
+            }
+        }
+        break;
         case 'deleteItem': {
-            const { id, qty } = action.payload;
+            const { id } = action.payload;
             const item = state.items.find(i => i.id === id);
             const QtyExisting = item?.qty ?? 0;
-            const finalQty = QtyExisting - qty;
-            const updatedItem = {...item, qty: finalQty};
-            if (finalQty === 0) {
-                return {
-                    itemsCount: state.itemsCount - qty,
-                    items: [ ...state.items.filter((item) => item.id !== id) ],
-                };
-            } else {
-                return {
-                    itemsCount: state.itemsCount - qty,
-                    items: { ...state.items.filter((item) => item.id !== id), updatedItem },
-                };
-            }
+            return {
+                itemsCount: state.itemsCount - QtyExisting,
+                items: [ ...state.items.filter((item) => item.id !== id)],
+            };
         }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`);
