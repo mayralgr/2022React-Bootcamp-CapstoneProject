@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import CheckOutForm from '../../components/CheckoutForm/CheckoutForm';
 import OrderSummaryTable from '../../components/OrderSummaryTable/OrderSummaryTable';
 import { useCart } from '../../contexts/CartContext';
