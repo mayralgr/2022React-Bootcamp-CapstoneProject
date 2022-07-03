@@ -25,7 +25,6 @@ const Product = ({ product }) => {
     };
 
     const ChangeCart = () => {
-      debugger;
         checkQtyVsStock(product.id, 1, product.data.stock)
             ? dispatch({
                   type: 'addItem',

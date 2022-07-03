@@ -7,7 +7,6 @@ const ShoppingCart = () => {
     const { items: cartItems } = state;
 
     const handleNumberOfItemsToAdd = (itemId, qty) => {
-        debugger;
         const parsedQty = parseInt(qty) || 1;
         dispatch({
             type: 'updateItem',
