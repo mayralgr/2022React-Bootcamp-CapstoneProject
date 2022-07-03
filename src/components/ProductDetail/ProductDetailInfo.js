@@ -45,7 +45,7 @@ const ProductDetailInfo = ({ product }) => {
                       name: product.data.name,
                       price: product.data.price,
                       qty: numberOfItems,
-                      mainImage: product.data.mainImage,
+                      mainImage: product.data.mainimage,
                       stock: product.data.stock,
                   },
               })

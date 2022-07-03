@@ -1,8 +1,12 @@
 import { Trash } from 'react-bootstrap-icons';
 
-const CartItemsTable = ({ items, deleteItemFromCart, handleNumberOfItemsToAdd }) => {
-    const total = items.reduce((acc, item) => acc + (item.price * item.qty), 0);
-    
+const CartItemsTable = ({
+    items,
+    deleteItemFromCart,
+    handleNumberOfItemsToAdd,
+}) => {
+    const total = items.reduce((acc, item) => acc + item.price * item.qty, 0);
+
     return (
         <>
             <table className="table">
@@ -21,11 +25,15 @@ const CartItemsTable = ({ items, deleteItemFromCart, handleNumberOfItemsToAdd })
                         <tbody>
                             {items.map((item) => (
                                 <tr key={item.id}>
-                                    <td>{item.mainImage}</td>
-                                    <td>{item.name}</td>
-                                    <td>
-                                        {item.price}
+                                    <td style={{ width: '20%' }}>
+                                        <img
+                                            style={{ width: 'inherit' }}
+                                            src={item.mainImage.url}
+                                            alt={item.mainImage.alt}
+                                        />
                                     </td>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
                                     <td>
                                         <input
                                             type="number"
@@ -44,7 +52,11 @@ const CartItemsTable = ({ items, deleteItemFromCart, handleNumberOfItemsToAdd })
                                     </td>
                                     <td>$ {item.price * item.qty}</td>
                                     <td>
-                                        <Trash onClick={()=> deleteItemFromCart(item.id)} />
+                                        <Trash
+                                            onClick={() =>
+                                                deleteItemFromCart(item.id)
+                                            }
+                                        />
                                     </td>
                                 </tr>
                             ))}
@@ -59,7 +71,9 @@ const CartItemsTable = ({ items, deleteItemFromCart, handleNumberOfItemsToAdd })
                         </tfoot>
                     </>
                 ) : (
-                    <tfoot><tr> No items in the cart </tr></tfoot>
+                    <tfoot>
+                        <tr> No items in the cart </tr>
+                    </tfoot>
                 )}
             </table>
         </>

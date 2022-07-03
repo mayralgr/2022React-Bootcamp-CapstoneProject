@@ -6,7 +6,7 @@ function cartReducer(state, action) {
     debugger;
     switch (action.type) {
         case 'addItem': {
-            const { id, qty, name, price, stock } = action.payload;
+            const { id, qty, name, price, stock, mainImage } = action.payload;
             const item = state.items.find(i => i.id === id);
             const itemQtyExisting = item?.qty ?? 0;
             const itemToAddOrUpdate = {
@@ -15,6 +15,7 @@ function cartReducer(state, action) {
                 price,
                 qty: qty + itemQtyExisting,
                 stock,
+                mainImage,
             };
             if(item) {
                 const items = state.items.filter(i => i.id !== id);
@@ -31,13 +32,14 @@ function cartReducer(state, action) {
         case 'updateItem': {
             const { id, qty} = action.payload;
             const item = state.items.find(i => i.id === id);
-            const {name, price ,qty: pastQty, stock} = item;
+            const {name, price ,qty: pastQty, stock, mainImage} = item;
             const itemToAddOrUpdate = {
                 id,
                 name,
                 price,
                 qty: qty,
                 stock,
+                mainImage,
             };
             if(item && qty <= stock) {
                 const items = state.items.filter(i => i.id !== id);
