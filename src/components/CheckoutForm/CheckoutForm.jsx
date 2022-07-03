@@ -1,6 +1,8 @@
-import Button from 'react-bootstrap/Button';
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
+
 import LabelInput from '../../styles/LabelInput.styled';
 
 const CheckOutForm = ({ checkOutHandler }) => {
@@ -74,4 +76,7 @@ const CheckOutForm = ({ checkOutHandler }) => {
     );
 };
 
+CheckOutForm.propTypes = {
+    checkOutHandler: PropTypes.func.isRequired,
+};
 export default CheckOutForm;

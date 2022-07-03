@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const OrderSummaryTable = ({ items }) => {
     const total = items.reduce((acc, item) => acc + item.price, 0);
 
@@ -37,6 +39,10 @@ const OrderSummaryTable = ({ items }) => {
             </table>
         </>
     );
+};
+
+OrderSummaryTable.propTypes = {
+    items: PropTypes.array.isRequired,
 };
 
 export default OrderSummaryTable;

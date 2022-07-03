@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Spinner from 'react-bootstrap/Spinner';
+import PropTypes from 'prop-types';
 
 const Slider = ({ featuredBanners, isLoading }) => {
     return isLoading ? (
@@ -30,5 +31,8 @@ const Slider = ({ featuredBanners, isLoading }) => {
         </div>
     );
 };
-
+Slider.propTypes = {
+    featuredBanners: PropTypes.object,
+    isLoading: PropTypes.bool,
+};
 export default Slider;

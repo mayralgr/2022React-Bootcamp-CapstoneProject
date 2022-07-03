@@ -1,4 +1,5 @@
 import { Trash } from 'react-bootstrap-icons';
+import PropTypes from 'prop-types';
 
 const CartItemsTable = ({
     items,
@@ -78,6 +79,13 @@ const CartItemsTable = ({
             </table>
         </>
     );
+};
+
+
+CartItemsTable.propTypes = {
+    items: PropTypes.array.isRequired,
+    deleteItemFromCart: PropTypes.func.isRequired,
+    handleNumberOfItemsToAdd: PropTypes.func.isRequired,
 };
 
 export default CartItemsTable;
