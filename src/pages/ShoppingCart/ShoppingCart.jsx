@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import CartItemsTable from '../../components/CartItemsTable/CartItemsTable';
 import { useCart } from '../../contexts/CartContext';
 import Button from '../../styles/ButtonSeeMore.styled';
@@ -6,16 +5,6 @@ import Button from '../../styles/ButtonSeeMore.styled';
 const ShoppingCart = () => {
     const { state, dispatch } = useCart();
     const { items: cartItems } = state;
-    // const total = cart.reduce((acc, item) => acc + item.price, 0);
-
-    const checkOutHandler = (data, e) => {
-        const {
-            customerName,
-            customerEmail,
-            customerOrderNotes,
-            customerZipCode,
-        } = data;
-    };
 
     const handleNumberOfItemsToAdd = (itemId, qty) => {
         debugger;
