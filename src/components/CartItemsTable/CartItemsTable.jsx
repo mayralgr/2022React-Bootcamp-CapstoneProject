@@ -54,6 +54,7 @@ const CartItemsTable = ({
                                     <td>$ {item.price * item.qty}</td>
                                     <td>
                                         <Trash
+                                            style={{cursor: "pointer"}}
                                             onClick={() =>
                                                 deleteItemFromCart(item.id)
                                             }

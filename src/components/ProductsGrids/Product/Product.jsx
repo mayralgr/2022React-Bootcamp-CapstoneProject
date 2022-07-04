@@ -52,11 +52,8 @@ const Product = ({ product }) => {
                     <CategoryPill>{product.data.category.slug}</CategoryPill>
                     <PricePill>$ {product.data.price}</PricePill>
                     {product.data.stock && (
-                        <CartPill type="button">
-                            <CartCheckFill
-                                onClick={ChangeCart}
-                                style={{ color: 'white' }}
-                            />
+                        <CartPill onClick={ChangeCart} type="button">
+                            <CartCheckFill style={{ color: 'white' }} />
                         </CartPill>
                     )}
                     <Link to={`/product/${product.id}`}>

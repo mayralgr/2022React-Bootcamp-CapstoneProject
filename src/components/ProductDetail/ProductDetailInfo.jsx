@@ -124,10 +124,10 @@ const ProductDetailInfo = ({ product }) => {
                     />
                     {product?.data?.stock !== 0 && (
                         <CartPill
+                            onClick={ChangeCart}
                             style={{ backgroundColor: 'purple' }}
                             type="button">
                             <CartCheckFill
-                                onClick={ChangeCart}
                                 style={{ color: 'white' }}
                             />
                         </CartPill>
