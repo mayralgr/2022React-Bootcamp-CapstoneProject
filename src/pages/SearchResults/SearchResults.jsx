@@ -18,7 +18,6 @@ const SearchResults = () => {
     const [totalPages, setTotalPages] = useState(
         parseInt(products?.total_pages) || 1
     );
-    debugger;
 
     useEffect(() => {
         setCurrentPage(parseInt(products?.page) || 1);

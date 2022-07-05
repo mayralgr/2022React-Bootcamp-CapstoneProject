@@ -1,3 +1,4 @@
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from 'react-bootstrap/Carousel';
 import { useCategories } from '../../utils/hooks/useCategories';
@@ -8,18 +9,47 @@ import CategoryPill from '../../styles/CategoryPill.styled';
 import PillsWrapper from '../../styles/PillsWrapper.styled';
 import CartPill from '../../styles/CartAddButton.styled';
 import { CartCheckFill } from 'react-bootstrap-icons';
+import { useCart } from '../../contexts/CartContext';
 
 const ProductDetailInfo = ({ product }) => {
     const { data: categoriesData, isLoading: categoriesLoading } =
         useCategories();
     const [categoryInfo, setCategoryInfo] = useState();
     const [numberOfItems, setNumberOfItems] = useState(0);
+    const { state, dispatch } = useCart();
 
     const handleItemsChange = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const itemsToAdd = e.target.value;
+        const itemsToAdd = parseInt(e.target.value);
         setNumberOfItems(itemsToAdd);
+    };
+
+    const checkQtyVsStock = (id, qty, stock) => {
+        const itemInCart = state.items.find((i) => i.id === id);
+        if (!itemInCart && qty <= stock) {
+            return true;
+        }
+        if (itemInCart && itemInCart.qty + qty <= stock) {
+            return true;
+        }
+        return false;
+    };
+
+    const ChangeCart = () => {
+        checkQtyVsStock(product.id, numberOfItems, product.data.stock)
+            ? dispatch({
+                  type: 'addItem',
+                  payload: {
+                      id: product.id,
+                      name: product.data.name,
+                      price: product.data.price,
+                      qty: numberOfItems,
+                      mainImage: product.data.mainimage,
+                      stock: product.data.stock,
+                  },
+              })
+            : alert('Not enough stock');
     };
 
     useEffect(() => {
@@ -29,7 +59,7 @@ const ProductDetailInfo = ({ product }) => {
             );
             setCategoryInfo(category);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         product.data && (
@@ -58,7 +88,8 @@ const ProductDetailInfo = ({ product }) => {
                     <p>{product.data.description[0].text}</p>
                     <PillsWrapper style={{ position: 'relative' }}>
                         {product.tags?.map((tag) => (
-                            <CategoryPill key={product.id + tag}
+                            <CategoryPill
+                                key={product.id + tag}
                                 style={{ backgroundColor: '#F77F00' }}>
                                 {tag}
                             </CategoryPill>
@@ -89,11 +120,18 @@ const ProductDetailInfo = ({ product }) => {
                         value={numberOfItems}
                         onChange={handleItemsChange}
                         min={0}
-                        max={product?.data?.stock ?? 1}
+                        max={product?.data?.stock ?? 1 - { numberOfItems }}
                     />
-                    <CartPill style={{backgroundColor: "purple"}} type="button">
-                        <CartCheckFill style={{ color: 'white' }} />
-                    </CartPill>
+                    {product?.data?.stock !== 0 && (
+                        <CartPill
+                            onClick={ChangeCart}
+                            style={{ backgroundColor: 'purple' }}
+                            type="button">
+                            <CartCheckFill
+                                style={{ color: 'white' }}
+                            />
+                        </CartPill>
+                    )}
                 </div>
             </>
         )
